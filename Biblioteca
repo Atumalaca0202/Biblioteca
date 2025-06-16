@@ -56,25 +56,29 @@ while True:
                     print(f"Encontrado; Titulo: {lista[0]}, Autor: {lista[1]}, Ano: {lista[2]} ")
 
     elif escolha == 5:
-        item = input("Digite o titulo do livro que deseja emprestar: ")
-        for lista in biblioteca:
-            if item in str(emprestado):
-                emprestado.append(emprestado)
+        titulo = input("Digite o titulo do livro que deseja emprestar: ")
+        encontrado = False
+        for livro in biblioteca:
+            if livro[0] == titulo:
+                emprestado.append(livro)
+                biblioteca.remove(livro)
                 print("Livro emprestado")
-            else:
-                print("Livro não encontrado")
+                encontrado = True
+                break
+        if not encontrado:
+            print("Livro não encontrado")
 
     elif escolha == 6:
         if not emprestado:
             print("Nenhum livro foi emprestado")
         else:
             print("LIVROS EMPRESTADOS:")
-            for lista in range(len(emprestado)):
-                print(f"Titulo: {emprestado[0]}, Autor: {emprestado[1]}, Ano: {emprestado[2]}")
+            for livro in emprestado:
+                print(f"Título: {livro[0]}, Autor: {livro[1]}, Ano: {livro[2]}")
 
     elif escolha == 7:
         item = input("Digite o titulo do livro que deseja devolver: ")
-        for lista in emprestado:
+        for lista in emprestado: 
             if item in str(lista):
                 emprestado.remove(lista)
                 print("Livro devolvido")
