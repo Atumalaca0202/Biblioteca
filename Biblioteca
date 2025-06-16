@@ -81,6 +81,7 @@ while True:
         for lista in emprestado: 
             if item in str(lista):
                 emprestado.remove(lista)
+                biblioteca.append(livro)
                 print("Livro devolvido")
 
     elif escolha == 8:
